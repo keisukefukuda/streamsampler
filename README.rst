@@ -1,15 +1,16 @@
 This file requires editing
 ==========================
 
-Note to the author: Please add something informative to this README *before*
-releasing your software, as `a little documentation goes a long way`_.  Both
-README.rst (this file) and NEWS.txt (release notes) will be included in your
-package metadata which gets displayed in the PyPI page for your project.
+StreamSampler package allows you to sample a particular number of elements from
+a stream of data of which length is very large or unknown.
+
+StreamSampler is provided in both forms of an executable command and library.
+It utilizes Reservoir sampling algorithm [`Vitter85`_]
 
 You can take a look at the README.txt of other projects, such as repoze.bfg
 (http://bfg.repoze.org/trac/browser/trunk/README.txt) for some ideas.
 
-.. _`a little documentation goes a long way`: http://www.martinaspeli.net/articles/a-little-documentation-goes-a-long-way
+.. _`Vitter85`: Random Sampling with a Reservoir http://www.cs.umd.edu/~samir/498/vitter.pdf
 
 Credits
 -------

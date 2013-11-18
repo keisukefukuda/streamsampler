@@ -1,10 +1,13 @@
 from setuptools import setup, find_packages
+
 import sys, os
+
+sys.path.append("src")
+sys.path.append("tests")
 
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
 NEWS = open(os.path.join(here, 'NEWS.txt')).read()
-
 
 version = '0.1'
 
@@ -13,7 +16,6 @@ install_requires = [
     # For more details, see:
     # http://packages.python.org/distribute/setuptools.html#declaring-dependencies
 ]
-
 
 setup(name='streamsampler',
     version=version,
@@ -28,11 +30,12 @@ setup(name='streamsampler',
     url='',
     license='MIT License',
     packages=find_packages('src'),
-    package_dir = {'': 'src'},include_package_data=True,
+    package_dir = {'': 'src'}, include_package_data=True,
     zip_safe=False,
     install_requires=install_requires,
     entry_points={
         'console_scripts':
             ['streamsampler=streamsampler:main']
-    }
+    },
+    test_suite = "tests.suites",
 )
