@@ -17,7 +17,7 @@ install_requires = [
     # http://packages.python.org/distribute/setuptools.html#declaring-dependencies
 ]
 
-setup(name='streamsampler',
+setup(name='StreamSampler',
     version=version,
     description="Data sampler from streaming data",
     long_description=README + '\n\n' + NEWS,
@@ -27,7 +27,7 @@ setup(name='streamsampler',
     keywords='',
     author='Keisuke Fukuda',
     author_email='keisukefukuda@gmail.com',
-    url='',
+    url='https://github.com/keisukefukuda/streamsampler',
     license='MIT License',
     packages=find_packages('src'),
     package_dir = {'': 'src'}, include_package_data=True,
