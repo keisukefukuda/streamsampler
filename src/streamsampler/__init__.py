@@ -1,11 +1,13 @@
-# Example package with a console entry point
+from __future__ import print_function, absolute_import
 
 import sys, os.path
 import random
 from optparse import OptionParser
 import locale
 
-from streamsampler import StreamSampler
+from . import streamsampler
+
+StreamSampler = streamsampler.StreamSampler
 
 def main():
     parser = OptionParser()
@@ -27,7 +29,7 @@ def main():
         random.seed(options.seed)
 
     if options.preserve == False:
-        print "Not preserving"
+        print("Not preserving")
         kwd['preserve'] = False
 
     ss = StreamSampler(k, **kwd)
@@ -43,7 +45,7 @@ def main():
             f.close()
 
     for line in ss:
-        print line
+        print(line)
 
     if options.report:
         locale.setlocale(locale.LC_ALL, "en_US")
