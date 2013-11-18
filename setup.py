@@ -22,9 +22,15 @@ setup(name='StreamSampler',
     description="Data sampler from streaming data",
     long_description=README + '\n\n' + NEWS,
     classifiers=[
-      # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
+        # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
+        'Development Status :: 3 - Alpha',
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 3',
+        'Topic :: Text Processing :: Filters',
     ],
-    keywords='',
+    keywords='Reservior sampling,',
     author='Keisuke Fukuda',
     author_email='keisukefukuda@gmail.com',
     url='https://github.com/keisukefukuda/streamsampler',
@@ -39,3 +45,4 @@ setup(name='StreamSampler',
     },
     test_suite = "tests.suites",
 )
+
