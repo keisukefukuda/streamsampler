@@ -11,14 +11,26 @@ def main():
     parser = OptionParser()
     parser.add_option("-n", action="store", type="int", dest="number", default=1000,
                       help="Take N samples from input data stream", metavar="N")
+    parser.add_option("-s", action="store", type="int", dest="seed", default=None,
+                      help="Seed value for random variables", metavar="S")
+    parser.add_option("--no-preserve", action="store_false", dest="preserve", default=True,
+                      help="Preserve the order of data")
     parser.add_option("--report", dest="report", action="store_true", default=False,
                       help="Report the number of read/sampled lines to stderr")
 
     (options, args) = parser.parse_args()
+    kwd = {}
 
     k = options.number
 
-    ss = StreamSampler(k)
+    if options.seed is not None:
+        random.seed(options.seed)
+
+    if options.preserve == False:
+        print "Not preserving"
+        kwd['preserve'] = False
+
+    ss = StreamSampler(k, **kwd)
 
     if len(args) == 0:
         for line in sys.stdin:
@@ -30,7 +42,7 @@ def main():
                 ss.append(line.strip())
             f.close()
 
-    for line in ss.get():
+    for line in ss:
         print line
 
     if options.report:

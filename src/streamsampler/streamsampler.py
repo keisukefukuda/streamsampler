@@ -19,21 +19,38 @@ for each i in k+1 to length(S) do
 done
 """
 
+import random
+
 class StreamSampler(object):
-    def __init__(self, k):
+    def __init__(self, k, **kwd):
         self._k = k
         self._i = 0
         self._R = []
+        self._S = None
+        self._preserve = True
+
+        if 'preserve' in kwd:
+            self._preserve = bool(kwd['preserve'])
+            del kwd['preserve']
+
+        if len(kwd) != 0:
+            raise ArgumentError("Unknown keyword arguments: " + ','.join(kwd.keys()))
 
     def append(self, elm):
+        i = self._i
         if len(self._R) >= self._k:
-            i = self._i
             j = random.randint(0, i-1)
             if j < self._k:
-                self._R[j] = elm
+                self._R[j] = (i, elm)
         else:
-            self._R.append(elm)
+            self._R.append((i,elm))
         self._i += 1
+        self._S = None
+
+    def append_all(self, lst):
+        for e in lst:
+            self.append(e)
+        self._S = None
 
     def __len__(self):
         return len(self._R)
@@ -45,7 +62,22 @@ class StreamSampler(object):
         if key >= len(self):
             raise IndexError("list index out of range")
 
-        return self._R[key]
+        self.__sort()
+        return self._S[key]
+
+    def __iter__(self):
+        self.__sort()
+        for elm in self._S:
+            yield elm
+
+    def __sort(self):
+        if self._S is None:
+            if self._preserve:
+                tmp = sorted(self._R, key=lambda d: d[0])
+            else:
+                tmp = self._R
+            self._S = [e[1] for e in tmp]
+            
 
     def total_count(self):
         return self._i
