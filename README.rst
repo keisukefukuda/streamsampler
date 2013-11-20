@@ -1,5 +1,5 @@
-This file requires editing
-==========================
+StreamSampler
+=============
 
 StreamSampler package allows you to sample a particular number of elements from
 a stream of data of which length is very large or unknown.
@@ -12,13 +12,15 @@ You can take a look at the README.txt of other projects, such as repoze.bfg
 
 .. _`Vitter85`: Random Sampling with a Reservoir http://www.cs.umd.edu/~samir/498/vitter.pdf
 
-Credits
+
+
+License
 -------
+MIT License
 
-- `Distribute`_
-- `Buildout`_
-- `modern-package-template`_
+See Also
+--------
+* `sample-cli`_ by Paul Butler is a command line tool providing almost the same feature. StreamSampler is intended to be a library, although it has a command line interface, so that it can be a part of other packages including my future projects.
 
-.. _Buildout: http://www.buildout.org/
-.. _Distribute: http://pypi.python.org/pypi/distribute
-.. _`modern-package-template`: http://pypi.python.org/pypi/modern-package-template
+.. _`sample-cli`: https://pypi.python.org/pypi/sample-cli/
+

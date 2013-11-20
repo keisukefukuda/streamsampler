@@ -35,11 +35,15 @@ class Cli(object):
 
     def feed(self, s):
         self._stream += s
+
         if self._delim is None:
-            m = re.search(r'\r\n|\r|\n', self._stream)
-            if m:
-                self._ss.append(self._stream[0:m.start(0)])
-                self._stream = self._stream[m.end(0):]
+            while True:
+                m = re.search(r'\r\n|\r|\n', self._stream)
+                if m:
+                    self._ss.append(self._stream[0:m.start(0)])
+                    self._stream = self._stream[m.end(0):]
+                else:
+                    break
         else:
             while True:
                 ind = self._stream.find(self._delim)
@@ -52,6 +56,9 @@ class Cli(object):
     def __iter__(self):
         for elm in self._ss:
             yield elm
+
+    def __len__(self):
+        return len(self._ss)
 
     def show_report(self, out):
         locale.setlocale(locale.LC_ALL, "en_US")

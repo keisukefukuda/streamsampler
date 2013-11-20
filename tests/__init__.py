@@ -1,5 +1,6 @@
 import streamsampler
 import test_streamsampler
+import test_cli
 
 def suites():
     import unittest
@@ -7,6 +8,7 @@ def suites():
     suite = unittest.TestSuite()
     #suite.addTests(doctest.DocTestSuite(streamsampler))
     suite.addTests(test_streamsampler.suite())
+    suite.addTests(test_cli.suite())
     return suite
 
 if __name__ == '__main__':

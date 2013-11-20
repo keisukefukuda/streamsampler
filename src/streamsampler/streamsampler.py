@@ -37,15 +37,16 @@ class StreamSampler(object):
             raise ArgumentError("Unknown keyword arguments: " + ','.join(kwd.keys()))
 
     def append(self, elm):
-        i = self._i
-        if len(self._R) >= self._k:
-            j = random.randint(0, i-1)
-            if j < self._k:
-                self._R[j] = (i, elm)
-        else:
-            self._R.append((i,elm))
-        self._i += 1
-        self._S = None
+        if self._k > 0:
+            i = self._i
+            if len(self._R) >= self._k:
+                j = random.randint(0, i-1)
+                if j < self._k:
+                    self._R[j] = (i, elm)
+            else:
+                self._R.append((i,elm))
+            self._i += 1
+            self._S = None
 
     def append_all(self, lst):
         for e in lst:

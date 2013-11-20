@@ -39,6 +39,13 @@ class StreamSamplerTestCase(unittest.TestCase):
         ss.append_all(range(5))
         self.assertEqual(list(ss), list(range(5)))
 
+    def test_k(self):
+        for k in range(100):
+            ss = StreamSampler(k)
+            for i in range(5 * k):
+                ss.append(i)
+            self.assertEqual(len(ss), k)
+
 def suite():
     loader = unittest.TestLoader()
     suite = unittest.TestSuite()
