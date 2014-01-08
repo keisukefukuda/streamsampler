@@ -9,7 +9,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.rst')).read()
 NEWS = open(os.path.join(here, 'NEWS.txt')).read()
 
-version = '0.1'
+version = '0.1.1'
 
 install_requires = [
     # List your project dependencies here.
@@ -23,11 +23,11 @@ setup(name='StreamSampler',
     long_description=README + '\n\n' + NEWS,
     classifiers=[
         # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 3',
+        #'Programming Language :: Python :: 3',
         'Topic :: Text Processing :: Filters',
     ],
     keywords='Reservior sampling,',

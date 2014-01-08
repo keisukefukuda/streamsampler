@@ -6,18 +6,11 @@
 News
 ====
 
-0.2a1
+0.1.1
+-----
+* Tests in Python 2.6, 2.7, 3.1, 3.2, 3.3
+
+0.1.0
 -----
 
-*Release date: UNRELEASED*
-
-* Example news entry for the in-development version
-
-
-0.1
----
-
-*Release date: 15-Mar-2010*
-
-* Example news entry for a released version
-
+First public version

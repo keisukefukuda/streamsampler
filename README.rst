@@ -23,4 +23,3 @@ See Also
 * `sample-cli`_ by Paul Butler is a command line tool providing almost the same feature. StreamSampler is intended to be a library, although it has a command line interface, so that it can be a part of other packages including my future projects.
 
 .. _`sample-cli`: https://pypi.python.org/pypi/sample-cli/
-
