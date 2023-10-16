@@ -33,7 +33,7 @@ class Cli(object):
             preserve = True
 
         self._stream = ""
-        self._ss = ss.StreamSampler(number, preserve=preserve)
+        self._ss = ss.RSampler(number, preserve=preserve)
 
     def feed(self, s):
         self._stream += s

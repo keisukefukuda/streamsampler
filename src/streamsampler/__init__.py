@@ -9,7 +9,7 @@ from optparse import OptionParser
 from . import cli
 from . import streamsampler as ss
 
-StreamSampler = ss.StreamSampler
+StreamSampler = ss.RSampler
 Cli = cli.Cli
 
 
