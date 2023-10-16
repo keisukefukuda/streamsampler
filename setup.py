@@ -1,15 +1,16 @@
-from setuptools import setup, find_packages
+import os
+import sys
 
-import sys, os
+from setuptools import find_packages, setup
 
 sys.path.append("src")
 sys.path.append("tests")
 
 here = os.path.abspath(os.path.dirname(__file__))
-README = open(os.path.join(here, 'README.rst')).read()
-NEWS = open(os.path.join(here, 'NEWS.txt')).read()
+README = open(os.path.join(here, "README.rst")).read()
+NEWS = open(os.path.join(here, "NEWS.txt")).read()
 
-version = '0.1.1'
+version = "0.1.1"
 
 install_requires = [
     # List your project dependencies here.
@@ -17,32 +18,30 @@ install_requires = [
     # http://packages.python.org/distribute/setuptools.html#declaring-dependencies
 ]
 
-setup(name='StreamSampler',
+setup(
+    name="StreamSampler",
     version=version,
     description="Data sampler from streaming data",
-    long_description=README + '\n\n' + NEWS,
+    long_description=README + "\n\n" + NEWS,
     classifiers=[
         # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
-        'Development Status :: 4 - Beta',
-        'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
+        "Development Status :: 4 - Beta",
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 2",
         #'Programming Language :: Python :: 3',
-        'Topic :: Text Processing :: Filters',
+        "Topic :: Text Processing :: Filters",
     ],
-    keywords='Reservior sampling,',
-    author='Keisuke Fukuda',
-    author_email='keisukefukuda@gmail.com',
-    url='https://github.com/keisukefukuda/streamsampler',
-    license='MIT License',
-    packages=find_packages('src'),
-    package_dir = {'': 'src'}, include_package_data=True,
+    keywords="Reservior sampling,",
+    author="Keisuke Fukuda",
+    author_email="keisukefukuda@gmail.com",
+    url="https://github.com/keisukefukuda/streamsampler",
+    license="MIT License",
+    packages=find_packages("src"),
+    package_dir={"": "src"},
+    include_package_data=True,
     zip_safe=False,
     install_requires=install_requires,
-    entry_points={
-        'console_scripts':
-            ['streamsampler=streamsampler:main']
-    },
-    test_suite = "tests.suites",
+    entry_points={"console_scripts": ["streamsampler=streamsampler:main"]},
+    test_suite="tests.suites",
 )
-
